@@ -1,30 +1,11 @@
-# lala
+# Github style Reddit
 
-> A Vue.js project
+> Vue, Vuex and Vue-router
 
-## Build Setup
+Based on [https://github.com/Ikuu/vue-reddit](https://github.com/Ikuu/vue-reddit) and converted to Vuex application.
 
-``` bash
-# install dependencies
-npm install
+Vuex adds complexity to original implementation. URL-based render is far more suitable to Reddit's API.
 
-# serve with hot reload at localhost:8080
-npm run dev
+### Inspiration
 
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-
-# run unit tests
-npm run unit
-
-# run e2e tests
-npm run e2e
-
-# run all tests
-npm test
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+Want to check reddit post in work but looks like to your coworker you are checking Github issues.
