@@ -2,13 +2,8 @@
   <div>
     <PageHeader />
     <TopNav />
-    <IssueHeader />
-    <div class="container">
-      <div class="discussion-timeline">
-        <slot></slot>
-      </div>
-      <Sidebar />
-    </div>
+    <slot />
+    <Footer />
   </div>
 </template>
 
@@ -17,14 +12,16 @@ import PageHeader from './PageHeader'
 import TopNav from './TopNav'
 import IssueHeader from './IssueHeader'
 import Sidebar from './Sidebar'
+import Footer from './Footer'
 
 export default {
-  name: 'github-header',
+  name: 'github',
   components: {
     PageHeader,
     TopNav,
     IssueHeader,
-    Sidebar
+    Sidebar,
+    Footer
   }
 }
 </script>

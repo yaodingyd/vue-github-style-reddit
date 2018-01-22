@@ -1,11 +1,11 @@
 <template lang="html">
   <div class="comment">
-    <GithubComment :author="comment.author">
+    <GithubComment :author="comment.author" :timestamp="comment.created">
       <div v-html="parsedCommentBody"></div>
     </GithubComment>
 
     <span v-if="comment.replies" @click="hideChildren">
-      Hide
+
     </span>
 
     <div v-if="comment.replies && showChildren">

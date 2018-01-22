@@ -13,19 +13,7 @@ export default new Router({
       component: List
     },
     {
-      path: '/r/:subreddit?/:filter?',
-      redirect: '/list'
-    },
-    {
-      path: '/list',
-      component: List
-    },
-    {
-      path: '/r/:subreddit/comments/:id/:title?',
-      redirect: '/issue'
-    },
-    {
-      path: '/issue',
+      path: '/issue/:id/',
       component: Post
     }
   ]

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="post-content">
-    <Comment>
+    <Comment mute="true">
       <div>
         <div v-if="post.secure_media">
           <embed-content :provider="post.secure_media.oembed.provider_name" :post="post"></embed-content>

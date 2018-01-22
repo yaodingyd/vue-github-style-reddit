@@ -2,7 +2,7 @@
   <div class="timeline-comment-wrapper">
     <div class="avatar-parent-child timeline-comment-avatar">
       <a href="*">
-        <img alt="@yaodingyd" class="avatar rounded-1" height="44" src="https://avatars1.githubusercontent.com/u/11392695?v=4&amp;s=88" width="44">
+        <img alt="@yaodingyd" class="avatar rounded-1" height="44" :src="avatar" width="44">
       </a>
     </div>
 
@@ -22,8 +22,9 @@
         </div>
 
         <h3 class="timeline-comment-header-text f5 text-normal">
-          <strong><a href="*" class="author">{{author}} </a></strong>commented
-          <a href="*" class="timestamp">in {{domain}}</a>
+          <strong><a href="*" class="author">{{author}} </a></strong>
+          <span v-if="!mute">commented in </span>
+          <a href="*" class="timestamp">{{time}}</a>
         </h3>
       </div>
 
@@ -44,7 +45,24 @@
 
 <script>
 export default {
-  props: ['author', 'domain']
+  props: {
+    author: {
+      default: 'Post'
+    },
+    timestamp: '',
+    mute: {
+      default: false
+    }
+  },
+  computed: {
+    avatar: function () {
+      let rand = Math.floor(Math.random() * 10000000)
+      return `https://avatars1.githubusercontent.com/u/${rand}?v=4&amp;s=88`
+    },
+    time: function () {
+      let date = new Date(this.timestamp * 1000)
+    }
+  }
 }
 </script>
 

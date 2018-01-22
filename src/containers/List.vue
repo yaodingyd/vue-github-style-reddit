@@ -1,12 +1,14 @@
 <template>
-  <section>
-    <subreddit :name="subreddit" :data="listData" :filter="filter"></subreddit>
-  </section>
+  <div class="container">
+    <section>
+      <subreddit :name="subreddit" :data="listData" :filter="filter" :updateFilter="updateFilter" :updateSubreddit="updateSubreddit" :updatePost="updatePost"></subreddit>
+    </section>
+  </div>
 </template>
 
 <script>
 import Subreddit from '@/components/Subreddit'
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'app',
@@ -16,13 +18,23 @@ export default {
   computed: mapState([
     'filter', 'subreddit', 'listData', 'after', 'page'
   ]),
-  methods: mapActions([
-    'loadList',
-    'loadNext'
-  ]),
+  methods: {
+    ...mapActions([
+      'loadList',
+      'loadNext'
+    ]),
+    ...mapMutations({
+      updateFilter: 'update_filter',
+      updateSubreddit: 'update_subreddit',
+      updatePost: 'update_post'
+    })
+  },
   created () {
     this.loadList()
     this.$store.watch(this.$store.getters.subreddit, () => {
+      this.loadList()
+    })
+    this.$store.watch(this.$store.getters.filter, () => {
       this.loadList()
     })
   }

@@ -24,15 +24,15 @@
 
             <ul class="d-flex list-style-none" role="navigation">
               <li>
-                <a href="*" aria-label="Pull requests you created" class="js-selected-navigation-item header-navlink">Pull requests</a></li>
+                <a href="/" aria-label="Pull requests you created" class="js-selected-navigation-item header-navlink">Pull requests</a></li>
               <li>
-                <a href="*" aria-label="Issues you created" class="js-selected-navigation-item header-navlink">Issues</a>
+                <a href="/" aria-label="Issues you created" class="js-selected-navigation-item header-navlink">Issues</a>
               </li>
               <li>
-                <a href="*" class="js-selected-navigation-item header-navlink">Marketplace</a>
+                <a href="/" class="js-selected-navigation-item header-navlink">Marketplace</a>
               </li>
               <li>
-                <a class="header-navlink" href="https://gist.github.com/">Gist</a>
+                <a class="header-navlink" href="/">Gist</a>
               </li>
             </ul>
           </div>
