@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="comment">
-    <GithubComment :author="comment.author" :timestamp="comment.created">
+    <GithubComment :author="comment.author" :timestamp="comment.created" v-if="parsedCommentBody">
       <div v-html="parsedCommentBody"></div>
     </GithubComment>
 

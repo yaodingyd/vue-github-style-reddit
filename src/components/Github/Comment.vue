@@ -23,7 +23,7 @@
 
         <h3 class="timeline-comment-header-text f5 text-normal">
           <strong><a href="*" class="author">{{author}} </a></strong>
-          <span v-if="!mute">commented in </span>
+          <span v-if="!mute">commented </span>
           <a href="*" class="timestamp">{{time}}</a>
         </h3>
       </div>
@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   props: {
     author: {
@@ -60,7 +62,7 @@ export default {
       return `https://avatars1.githubusercontent.com/u/${rand}?v=4&amp;s=88`
     },
     time: function () {
-      let date = new Date(this.timestamp * 1000)
+      return moment(this.timestamp * 1000).fromNow()
     }
   }
 }
