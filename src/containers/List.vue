@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <section>
-      <subreddit :name="subreddit" :data="listData" :filter="filter" :updateFilter="updateFilter" :updateSubreddit="updateSubreddit" :updatePost="updatePost"></subreddit>
+      <subreddit :name="subreddit" :data="listData" :filter="filter" :updateFilter="updateFilter" :updatePost="updatePost" :next="loadNext" :updateSubreddit="updateSubreddit"></subreddit>
     </section>
   </div>
 </template>
@@ -37,6 +37,14 @@ export default {
     this.$store.watch(this.$store.getters.filter, () => {
       this.loadList()
     })
+  },
+  watch: {
+    '$route.params.subreddit' (subreddit) {
+      if (!subreddit) {
+        subreddit = 'all'
+      }
+      this.updateSubreddit({subreddit: subreddit})
+    }
   }
 }
 </script>

@@ -13,6 +13,14 @@ export default new Router({
       component: List
     },
     {
+      path: '/list/:subreddit',
+      component: List
+    },
+    {
+      path: '/list/:subreddit/:page',
+      component: List
+    },
+    {
       path: '/issue/:id/',
       component: Post
     }

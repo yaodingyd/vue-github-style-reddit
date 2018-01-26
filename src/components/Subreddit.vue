@@ -65,7 +65,7 @@
                   {{entry.data.title}}
                 </router-link>
                 <span class="labels">
-                  <button @click="updateSubreddit({subreddit: entry.data.subreddit})" class="label v-align-text-top labelstyle-cc317c linked-labelstyle-cc317c" :style="{background: convert(entry.data.subreddit)}">{{entry.data.subreddit}}</button>
+                  <router-link :to="'/list/' + entry.data.subreddit" class="label v-align-text-top labelstyle-cc317c linked-labelstyle-cc317c" :style="{background: convert(entry.data.subreddit)}">{{entry.data.subreddit}}</router-link>
                 </span>
                 <div class="mt-1 text-small text-gray">
                   <span class="opened-by">
@@ -81,8 +81,8 @@
 
       <div class="paginate-container">
         <div class="pagination">
-          <button class="previous_page disabled">Previous</button>
-          <button class="next_page">Next</button>
+          <a class="previous_page disabled">Previous</a>
+          <a class="next_page" @click="next()">Next</a>
         </div>
       </div>
 
@@ -94,7 +94,7 @@
 import stringToColor from 'string-to-color'
 
 export default {
-  props: ['data', 'filter', 'name', 'updateFilter', 'updateSubreddit', 'updatePost'],
+  props: ['data', 'filter', 'name', 'updateFilter', 'next', 'updatePost', 'updateSubreddit'],
   methods: {
     convert: function (string) {
       return '#' + stringToColor.generate(string)

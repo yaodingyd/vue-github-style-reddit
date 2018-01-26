@@ -40,6 +40,9 @@ export default {
     this.$store.watch(this.$store.getters.post, () => {
       this.loadPost()
     })
+  },
+  mounted () {
+    window.scroll(0,0)
   }
 }
 </script>

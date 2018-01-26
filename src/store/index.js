@@ -21,11 +21,11 @@ export default new Vuex.Store({
     subreddit: 'all',
     post: '',
     filter: 'hot',
-    listData: {},
+    listData: [],
     postData: {},
-    commentsData: {},
+    commentsData: [],
     after: '',
-    page: 20,
+    page: 25,
     loading: false
   },
   getters: {
@@ -36,6 +36,7 @@ export default new Vuex.Store({
   mutations: {
     [UPDATE_SUBREDDIT] (state, payload) {
       state.subreddit = payload.subreddit
+      state.listData = []
     },
     [UPDATE_POST] (state, payload) {
       state.post = payload.post
@@ -47,7 +48,7 @@ export default new Vuex.Store({
       state.after = payload.after
     },
     [UPDATE_PAGE] (state) {
-      state.page += 20
+      state.page += 25
     },
     [GET_LIST_DATA] (state, payload) {
       state.listData = payload.data
