@@ -8,10 +8,8 @@
           </a>
         </div>
         <h1 class="gh-header-title">
-          <span class="js-issue-title">
-            Rendering differences when using styles outside of github page structure
-          </span>
-          <span class="gh-header-number">#37</span>
+          <span class="js-issue-title">{{title}}</span>
+          <span class="gh-header-number">#1</span>
         </h1>
         </div>
         <div class="TableObject gh-header-meta">
@@ -22,10 +20,36 @@
             </div>
         </div>
         <div class="TableObject-item TableObject-item--primary">
-            <a href="/gingerbeardman" class="author">gingerbeardman</a>  opened this <span class="noun">Issue</span>
-            Nov 25, 2016 · 0 comments
+            <a href="*" class="author">{{author}}</a>  opened this <span class="noun">Issue</span>
+            {{createdTime}}
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import moment from 'moment'
+
+export default {
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    author: {
+      type: String,
+      default: 'yaodingyd'
+    },
+    created: {
+      type: Number
+    }
+  },
+  computed: {
+    createdTime: function () {
+      return moment(this.created * 1000).fromNow()
+    }
+  }
+}
+</script>
+

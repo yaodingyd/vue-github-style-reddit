@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <IssueHeader />
+  <div v-if="!loading">
+    <IssueHeader :title="postData.title" :author="postData.author" :created="postData.created"/>
     <div class="container">
       <div class="discussion-timeline">
-        <div v-if="!loading">
-          <post-content :post="postData" :comments="commentsData"></post-content>
-        </div>
-        <div v-else>
-          <div class="loader"></div>
-        </div>
+        <post-content :post="postData" :comments="commentsData"></post-content>
       </div>
       <Sidebar />
     </div>
+  </div>
+  <div v-else class="loader-container">
+    <div class="loader" />
   </div>
 </template>
 
@@ -47,16 +45,21 @@ export default {
 </script>
 
 <style>
+.loader-container {
+  flex: 1;
+}
+
 .loader {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   position: relative;
-  animation: loader12 1s linear alternate infinite;
+  animation: loader 1s linear alternate infinite;
   top: 50%;
-  margin: -50px auto 0 auto; }
+  margin: -50px auto 0 auto;
+}
 
-@keyframes loader12 {
+@keyframes loader {
   0% {
     box-shadow: -60px 40px 0 2px #c0d3eb, -30px 40px 0 0 rgba(0, 82, 236, 0.2), 0 40px 0 0 rgba(0, 82, 236, 0.2), 30px 40px 0 0 rgba(0, 82, 236, 0.2), 60px 40px 0 0 rgba(0, 82, 236, 0.2); }
   25% {

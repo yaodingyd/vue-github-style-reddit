@@ -78,6 +78,14 @@
           </li>
         </ul>
       </div>
+
+      <div class="paginate-container">
+        <div class="pagination">
+          <button class="previous_page disabled">Previous</button>
+          <button class="next_page">Next</button>
+        </div>
+      </div>
+
     </div>
   </section>
 </template>

@@ -24,7 +24,7 @@
         <h3 class="timeline-comment-header-text f5 text-normal">
           <strong><a href="*" class="author">{{author}} </a></strong>
           <span v-if="!mute">commented </span>
-          <a href="*" class="timestamp">{{time}}</a>
+          <a href="*" class="timestamp" v-if="!mute">{{time}}</a>
         </h3>
       </div>
 
@@ -49,7 +49,7 @@ import moment from 'moment'
 export default {
   props: {
     author: {
-      default: 'Post'
+      default: 'Original Post'
     },
     timestamp: '',
     mute: {

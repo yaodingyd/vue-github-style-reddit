@@ -1,8 +1,10 @@
 <template>
   <div>
-    <PageHeader />
-    <TopNav />
-    <slot />
+    <div class="flex-container">
+      <PageHeader />
+      <TopNav />
+      <slot />
+    </div>
     <Footer />
   </div>
 </template>
@@ -25,4 +27,13 @@ export default {
   }
 }
 </script>
+
+<style>
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+</style>
+
 
