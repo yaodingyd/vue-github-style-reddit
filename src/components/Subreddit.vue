@@ -111,9 +111,10 @@ export default {
         return this.data
       }
       return this.data.filter((entry) => {
-        const title = entry.data.title
-        const author = entry.data.author
-        return title.includes(this.search) || author.includes(this.search)
+        const search = this.search.toLowerCase()
+        const title = entry.data.title.toLowerCase()
+        const author = entry.data.author.toLowerCase()
+        return title.includes(search) || author.includes(search)
       })
     }
   }
